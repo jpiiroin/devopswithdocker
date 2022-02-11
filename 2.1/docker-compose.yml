@@ -1,0 +1,9 @@
+version: '3.9'
+
+services:
+  simple:
+    image: devopsdockeruh/simple-web-service
+    build: .
+    volumes:
+      - /home/janneubuntu/Desktop/tehtavat/2.1/text.log:/usr/src/app/text.log
+    container_name: simple
