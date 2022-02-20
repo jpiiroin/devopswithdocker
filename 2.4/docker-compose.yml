@@ -1,0 +1,37 @@
+version: '3.9'
+
+services:
+    
+    redis:
+      image: redis:alpine
+      networks:
+        mynet123:
+          ipv4_address: 172.18.0.4
+
+      
+    frontend:
+      image: frontend:latest
+      ports:
+        - 8080:5000
+
+      networks:
+        mynet123:
+          ipv4_address: 172.18.0.2
+      command: serve -s -l 5000 build
+    
+    backend:
+      image: backend:latest
+      ports:
+        - 5000:8080
+      networks:
+        mynet123:
+          ipv4_address: 172.18.0.3
+      command: ./server      
+
+networks:
+  mynet123:
+    driver: bridge
+    ipam:
+     config:
+       - subnet: 172.18.0.0/16
+         gateway: 172.18.0.1
