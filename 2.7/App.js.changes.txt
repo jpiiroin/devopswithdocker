@@ -1,0 +1,9 @@
+I needed to change the address from "localhost" to "172.18.0.3" 
+to make uploading the image to backend work in App.js -file, as
+posting to "localhost:5000" does not work in my system. 
+
+----
+url: 'http://172.18.0.3:5000/kurkkuvaimopo'
+----
+
+Any other changes were not needed.
