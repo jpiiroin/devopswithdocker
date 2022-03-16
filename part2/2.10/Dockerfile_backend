@@ -1,0 +1,20 @@
+FROM golang:1.16.8-buster
+
+#ENV REQUEST_ORIGIN=http://172.18.0.2:5000
+ENV REQUEST_ORIGIN=http://172.18.0.6
+
+ENV REDIS_HOST=172.18.0.4
+
+ENV POSTGRES_HOST=172.18.0.5
+
+ENV POSTGRES_PASSWORD=example
+
+EXPOSE 8080
+
+WORKDIR /usr/src/app
+
+COPY . .
+
+RUN go build
+
+#RUN ./server
