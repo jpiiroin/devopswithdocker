@@ -1,3 +1,0 @@
-docker build -t ml-frontend .
-docker build -t ml-backend .
-docker build -t ml-training .
